@@ -1,0 +1,1 @@
+ E:\\wanderplan-main\\build\\af5b5282e6d87bdbe22d22c12f45a344\\dart_build_result.json:  C:\\flutter\\bin\\cache\\dart-sdk\\version E:\\wanderplan-main\\.dart_tool\\package_config.json E:\\wanderplan-main\\pubspec.yaml e:\\wanderplan-main\\.dart_tool\\package_config.json

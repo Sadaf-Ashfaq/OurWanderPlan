@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1006294623000",
+    "project_id": "wanderplan-ea9f4",
+    "storage_bucket": "wanderplan-ea9f4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006294623000:android:bcd99deea3ecfd9de9746d",
+        "android_client_info": {
+          "package_name": "com.example.wanderplan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006294623000-668460dp9k2fftinbdf8jsspn4d6flqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFV0FRU8Hczk52P1DSWo57cbD3ldRJdc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006294623000-668460dp9k2fftinbdf8jsspn4d6flqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
