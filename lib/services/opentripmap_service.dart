@@ -11,8 +11,8 @@ class OpenTripMapService {
     required double lon,
     // FIX 2: much more diverse kinds — not just interesting_places
     String kind = 'interesting_places,cultural,historic,architecture,natural,amusements,sport,shops,foods,restaurants,cafes',
-    int radius = 5000,
-    int limit = 20,
+    int radius = 10000,
+    int limit = 50,
   }) async {
     final listUrl = Uri.parse(
       '$_base/radius?radius=$radius&lon=$lon&lat=$lat'
@@ -110,7 +110,8 @@ class OpenTripMapService {
       fetchNearby(
         lat: lat,
         lon: lon,
-        kind: 'interesting_places,cultural,historic,architecture,natural,amusements',
+        kind:
+            'interesting_places,cultural,historic,architecture,natural,amusements,sport,foods,restaurants,cafes,accomodations',
       );
 
   static Future<List<Place>> fetchHotels(double lat, double lon) =>

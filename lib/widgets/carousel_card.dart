@@ -41,13 +41,10 @@ class _CarouselCardState extends State<CarouselCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image
+          // Image (placeholder icon container)
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-            child: p.image.isNotEmpty
-                ? Image.network(p.image, height: 140, width: double.infinity, fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => _placeholder())
-                : _placeholder(),
+            child: _buildImagePlaceholder(p.type),
           ),
           Padding(
             padding: const EdgeInsets.all(12),
@@ -90,4 +87,27 @@ class _CarouselCardState extends State<CarouselCard> {
   Widget _placeholder() => Container(
       height: 140, color: Colors.grey.shade200,
       child: const Icon(Icons.photo, color: Colors.grey, size: 40));
+
+  Widget _buildImagePlaceholder(String type) {
+    final color = type == 'hotel'
+        ? Colors.indigo
+        : type == 'restaurant'
+            ? Colors.orange
+            : AppTheme.primary;
+
+    final icon = type == 'hotel'
+        ? Icons.hotel_rounded
+        : type == 'restaurant'
+            ? Icons.restaurant_rounded
+            : Icons.place_rounded;
+
+    return Container(
+      height: 140,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.12),
+      ),
+      child: Center(child: Icon(icon, color: color, size: 48)),
+    );
+  }
 }

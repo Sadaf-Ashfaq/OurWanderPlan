@@ -47,26 +47,13 @@ class _PlaceCardState extends State<PlaceCard> {
       ),
       child: Row(
         children: [
-          // ── Image ──────────────────────────────────────────
+          // ── Image (placeholder icon container) ──────────────
           ClipRRect(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(16),
               bottomLeft: Radius.circular(16),
             ),
-            child: p.image.isNotEmpty
-                ? Image.network(
-                    p.image,
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.cover,
-                    // FIX 1: show shimmer while loading
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return _shimmer();
-                    },
-                    errorBuilder: (_, __, ___) => _placeholder(),
-                  )
-                : _placeholder(),
+            child: _buildImagePlaceholder(p.type),
           ),
 
           // ── Details ────────────────────────────────────────
@@ -191,6 +178,33 @@ class _PlaceCardState extends State<PlaceCard> {
         color: Colors.grey.shade200,
         child: const Icon(Icons.photo, color: Colors.grey),
       );
+
+  Widget _buildImagePlaceholder(String type) {
+    final color = type == 'hotel'
+        ? Colors.indigo
+        : type == 'restaurant'
+            ? Colors.orange
+            : AppTheme.primary;
+
+    final icon = type == 'hotel'
+        ? Icons.hotel_rounded
+        : type == 'restaurant'
+            ? Icons.restaurant_rounded
+            : Icons.place_rounded;
+
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.12),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(16),
+          bottomLeft: Radius.circular(16),
+        ),
+      ),
+      child: Icon(icon, color: color, size: 36),
+    );
+  }
 
   Color _typeColor(String type) {
     if (type == 'hotel') return Colors.indigo;
